@@ -18,6 +18,7 @@ export function About({ object }: HomeProps) {
             alt="Imagem ilustrativa sobre a empresa"
             quality={100}
             fill
+            sizes="(max-width: 480px) 100vw, (max-width: 1024) 75vw, 60vw"
           />
         </div>
       </section>
@@ -36,6 +37,7 @@ export function About({ object }: HomeProps) {
                 alt="Imagem do serviço"
                 quality={100}
                 fill
+                sizes="(max-width: 480px) 100vw, (max-width: 1024) 75vw, 60vw"
               />
             </div>
             <p>{item.description}</p>
