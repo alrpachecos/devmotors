@@ -30,12 +30,13 @@ export function Hero({
 
       <div className={styles.contentBanner}>
         <Image
+          className={styles.banner}
           src={bannerUrl}
           alt={heading}
           priority
           quality={100}
           fill
-          className={styles.banner}
+          sizes="(max-width: 480px) 100vw, (max-width: 1024) 75vw, 60vw"
         />
       </div>
     </main>

@@ -3,8 +3,13 @@ import Link from 'next/link';
 import styles from './styles.module.scss';
 import { X, Menu } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { MenuProps } from '@/types/menu';
 
-export function SubMenu() {
+interface SubmenuProps {
+  menu: MenuProps;
+}
+
+export function SubMenu({ menu }: SubmenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleResize = () => {
@@ -33,15 +38,17 @@ export function SubMenu() {
       <ul
         className={`${styles.ul} ${isOpen ? styles.submenuOpen : ''}`}
       >
-        <li>
-          <Link href="/post/pagina-1">Pagina 1</Link>
-        </li>
-        <li>
-          <Link href="/post/pagina-2">Pagina 2</Link>
-        </li>
-        <li>
-          <Link href="/post/pagina-3">Pagina 3</Link>
-        </li>
+        {isOpen && (
+          <button onClick={toggleMenu} className={styles.closeButton}>
+            <X size={54} color="#121212" />
+          </button>
+        )}
+
+        {menu.objects.map((item) => (
+          <li key={item.slug}>
+            <Link href={`/post/${item.slug}`}>{item.title}</Link>
+          </li>
+        ))}
       </ul>
     </section>
   );
