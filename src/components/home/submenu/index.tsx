@@ -35,9 +35,7 @@ export function SubMenu({ menu }: SubmenuProps) {
         <p>Menu</p>
       </div>
 
-      <ul
-        className={`${styles.ul} ${isOpen ? styles.submenuOpen : ''}`}
-      >
+      <ul className={`${styles.ul} ${isOpen ? styles.submenuOpen : ''}`}>
         {isOpen && (
           <button onClick={toggleMenu} className={styles.closeButton}>
             <X size={54} color="#121212" />

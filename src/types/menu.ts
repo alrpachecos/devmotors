@@ -1,8 +1,8 @@
 export interface MenuProps {
-    objects: ItemMenuProps[];
+  objects: ItemMenuProps[];
 }
 
 interface ItemMenuProps {
-    slug: string;
-    title: string;
+  slug: string;
+  title: string;
 }

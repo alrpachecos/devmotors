@@ -8,12 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'DevMotors - Sua oficina especializada!',
   description: 'Oficina de carros em Aracaju',
-  keywords: [
-    'oficina',
-    'oficina de carros',
-    'carros',
-    'manutenção de carros',
-  ],
+  keywords: ['oficina', 'oficina de carros', 'carros', 'manutenção de carros'],
   openGraph: {
     images: [`${process.env.NEXT_PUBLIC_URL}/logo.jpg`],
   },

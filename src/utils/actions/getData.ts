@@ -1,9 +1,9 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 export async function getDataHome() {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/objects/663c12689d4852270e6b7201?read_key=${process.env.READ_KEY}&depth=1&props=slug,title,metadata`
+      `${process.env.NEXT_PUBLIC_API_URL}/objects/663c12689d4852270e6b7201?read_key=${process.env.READ_KEY}&depth=1&props=slug,title,metadata`,
     );
     if (!response.ok) throw new Error('Failed to fetch data');
 
@@ -16,7 +16,7 @@ export async function getDataHome() {
 export async function getSubMenu() {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/objects?pretty=true&query=%7B%22type%22:%22pages%22%7D&limit=10&read_key=${process.env.READ_KEY}&depth=1&props=slug,title,`
+      `${process.env.NEXT_PUBLIC_API_URL}/objects?pretty=true&query=%7B%22type%22:%22pages%22%7D&limit=10&read_key=${process.env.READ_KEY}&depth=1&props=slug,title,`,
     );
     if (!response.ok) throw new Error('Failed to fetch menu data');
 
@@ -46,7 +46,7 @@ export async function getItemBySlug(itemSlug: string) {
 
     return response.json();
   } catch (error) {
-    console.log(error)
-    redirect('/')
+    console.log(error);
+    redirect('/');
   }
 }

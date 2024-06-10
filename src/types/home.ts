@@ -1,36 +1,36 @@
 export interface HomeProps {
-    object: {
-        slug: string;
+  object: {
+    slug: string;
+    title: string;
+    metadata: {
+      banner: {
+        url: string;
+      };
+      heading: string;
+      cta_button: {
         title: string;
-        metadata: {
-            banner: {
-                url: string;
-            };
-            heading: string;
-            cta_button: {
-                title: string;
-                url: string;
-            };
-            about: {
-                description: string;
-                banner: {
-                    url: string;
-                }
-            };
-            services: ServiceProps[];
-            contact: {
-                email: string;
-                phone: string;
-                address: string;
-                time: string;
-            }
-        }
-    }
+        url: string;
+      };
+      about: {
+        description: string;
+        banner: {
+          url: string;
+        };
+      };
+      services: ServiceProps[];
+      contact: {
+        email: string;
+        phone: string;
+        address: string;
+        time: string;
+      };
+    };
+  };
 }
 
 interface ServiceProps {
-    image: {
-        url: string;
-    };
-    description: string;
+  image: {
+    url: string;
+  };
+  description: string;
 }

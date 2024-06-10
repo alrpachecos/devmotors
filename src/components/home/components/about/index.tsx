@@ -23,13 +23,11 @@ export function About({ object }: HomeProps) {
         </div>
       </section>
 
-      <h2 className={styles.servicesTitle}>
-        Conheça nossos serviços
-      </h2>
+      <h2 className={styles.servicesTitle}>Conheça nossos serviços</h2>
 
       <section className={styles.services}>
-        {object.metadata.services.map((item) => (
-          <article className={styles.serviceItem}>
+        {object.metadata.services.map((item, index) => (
+          <article key={index} className={styles.serviceItem}>
             <div className={styles.innerService}>
               <Image
                 className={styles.imageService}
