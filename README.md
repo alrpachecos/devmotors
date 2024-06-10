@@ -10,7 +10,6 @@ Site desenvolvido com Next.js que consome uma API de um Sistema de Gerenciamento
 
 - Node.js instalado na sua máquina
 - Conhecimento básico de JavaScript e React.js
-- Acesso à API do seu CMS
 
 ## Configuração
 
