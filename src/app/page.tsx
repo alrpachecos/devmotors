@@ -1,94 +1,34 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Container } from '@/components/container';
+import { Hero } from '@/components/hero';
+import { About } from '@/components/home/components/about';
+import { Footer } from '@/components/home/components/footer';
+import { SubMenu } from '@/components/home/submenu';
+import { HomeProps } from '@/types/home';
+import { MenuProps } from '@/types/menu';
+import { getDataHome, getSubMenu } from '@/utils/actions/getData';
+import { Phone } from 'lucide-react';
 
-export default function Home() {
+export default async function Home() {
+  const { object }: HomeProps = await getDataHome();
+  const menu: MenuProps = await getSubMenu();
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main>
+      <div>
+        {menu.objects.length > 0 && <SubMenu menu={menu} />}
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+        <Hero
+          heading={object.metadata.heading}
+          buttonTitle={object.metadata.cta_button.title}
+          buttonUrl={object.metadata.cta_button.url}
+          bannerUrl={object.metadata.banner.url}
+          icon={<Phone size={24} color="#FFFFFF" />}
         />
-      </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <Container>
+          <About object={object} />
+          <Footer object={object} />
+        </Container>
       </div>
     </main>
   );
