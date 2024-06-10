@@ -25,11 +25,7 @@ export async function generateMetadata({
     return {
       title: `DevMotors - ${objects[0].title}`,
       description: `${objects[0].metadata.description}`,
-      keywords: [
-        'devmotors',
-        'troca de oleo',
-        'devmotors troca de oleo',
-      ],
+      keywords: ['devmotors', 'troca de oleo', 'devmotors troca de oleo'],
       openGraph: {
         title: `DevMotors - ${objects[0].title}`,
         images: [objects[0].metadata.banner.url],

@@ -1,0 +1,10 @@
+{
+  "husky": {
+  	"hooks": {
+    	"pre-commit": "yarn prettier && yarn lint"
+  	}
+  },
+	"lint-staged": {
+  	"*": "prettier --write"
+	}
+}

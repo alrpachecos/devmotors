@@ -18,9 +18,7 @@ export function Header() {
 
   return (
     <header
-      className={`${styles.header} ${
-        !top ? styles.fixed : styles.background
-      }`}
+      className={`${styles.header} ${!top ? styles.fixed : styles.background}`}
     >
       <div className={styles.container}>
         <div className={styles.content}>
